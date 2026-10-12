@@ -18,6 +18,10 @@ app.get("/test", async (req, res) => {
   res.json("Testing");
 });
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
