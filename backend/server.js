@@ -8,10 +8,11 @@ app.use(cors());
 app.use(express.json()); 
 
 const PORT = process.env.PORT || 5000;
+const IP_ADDRESS = process.env.IP_ADDRESS || "127.0.0.1";
 
 // IP address must for CICD when NGINX is only entry point to server.
-app.listen(5000, "127.0.0.1" , () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, IP_ADDRESS, () => {
+  console.log(`Server running on port ${PORT} and IP ${IP_ADDRESS}`);
 });
 
 app.get("/test", async (req, res) => {
